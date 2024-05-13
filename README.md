@@ -37,7 +37,7 @@ The script generates a visualization of the following:
 
 ## Results Interpretation
 
-The script estimates the rotation and translation between the template and test images based on the matched keypoints. The transformation annotations are added to the test image to visualize the estimated transformation.
+Both the script estimates the rotation and translation between the template and test images based on the matched keypoints. The transformation annotations are added to the test image to visualize the estimated transformation.
 
 ## Code Explanation
 
@@ -56,7 +56,8 @@ rotation_rad = np.arctan2(M[1, 0], M[0, 0])
 rotation_deg = np.degrees(rotation_rad)
 translation = M[:, 2]
 ```
-## Affine Transformation
+
+### Affine Transformation
 
 This code block estimates the affine transformation between the segmented template and test images using the `cv2.estimateAffine2D` function. It then calculates the rotation and translation based on the affine matrix.
 
