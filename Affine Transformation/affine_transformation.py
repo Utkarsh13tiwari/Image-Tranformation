@@ -6,8 +6,8 @@ from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, \
     SamPredictor  # Import SAM segmentation algorithm
 
 # Load the template image and test image
-template_image = cv2.imread(r"C:\Users\utkar\PycharmProjects\Infilect\inpu.jpg")
-test_image = cv2.imread(r"C:\Users\utkar\PycharmProjects\Infilect\test.jpg")
+template_image = cv2.imread(r"path\to\templete.jpg")
+test_image = cv2.imread(r"path\to\test.jpg")
 
 template_image = cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)
 test_image = cv2.cvtColor(test_image, cv2.COLOR_BGR2RGB)
@@ -15,7 +15,7 @@ test_image = cv2.cvtColor(test_image, cv2.COLOR_BGR2RGB)
 # Initialize SAM segmentation algorithm
 DEVICE = torch.device('cuda')
 MODEL_TYPE = "vit_h"
-CHECKPOINT_PATH = r"C:\Users\utkar\PycharmProjects\Infilect\sam_vit_h_4b8939.pth"  # Path to the SAM model checkpoint
+CHECKPOINT_PATH = r"path\to\sam_vit_h_4b8939.pth"  # Path to the SAM model checkpoint
 sam = sam_model_registry[MODEL_TYPE](checkpoint=CHECKPOINT_PATH)
 sam.to(device=DEVICE)
 mask_generator = SamAutomaticMaskGenerator(model=sam,
