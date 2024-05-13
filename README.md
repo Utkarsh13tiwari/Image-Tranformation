@@ -75,4 +75,4 @@ rotation_deg = np.degrees(rotation_rad)
 translation = M[:, 2]
 ```
 #### Result:
-![Result of Affine Transformation Estimation](https://github.com/Utkarsh13tiwari/Image-Tranformation/blob/main/results/affine.png))
+![Result of Affine Transformation Estimation](https://github.com/Utkarsh13tiwari/Image-Tranformation/blob/main/results/affine.png)
