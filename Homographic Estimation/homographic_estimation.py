@@ -6,7 +6,7 @@ from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, \
     SamPredictor  # Import SAM segmentation algorithm
 
 # Load the template image and test image
-template_image = cv2.imread(r"/inpu.jpg")
+template_image = cv2.imread(r"/input.jpg")
 test_image = cv2.imread(r"/test.jpg")
 
 template_image = cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)
