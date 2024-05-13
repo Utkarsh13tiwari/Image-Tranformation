@@ -56,8 +56,10 @@ rotation_rad = np.arctan2(M[1, 0], M[0, 0])
 rotation_deg = np.degrees(rotation_rad)
 translation = M[:, 2]
 ```
+#### Result:
+![Result of Homographic Estimation](https://github.com/Utkarsh13tiwari/Image-Tranformation/blob/main/results/homo.png)
 
-### Affine Transformation
+### Affine Transformation Estimation
 
 This code block estimates the affine transformation between the segmented template and test images using the `cv2.estimateAffine2D` function. It then calculates the rotation and translation based on the affine matrix.
 
@@ -72,4 +74,5 @@ rotation_rad = np.arctan2(M[1, 0], M[0, 0])
 rotation_deg = np.degrees(rotation_rad)
 translation = M[:, 2]
 ```
-
+#### Result:
+![Result of Affine Transformation Estimation](https://github.com/Utkarsh13tiwari/Image-Tranformation/blob/main/results/affine.png))
