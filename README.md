@@ -39,3 +39,36 @@ The script generates a visualization of the following:
 
 The script estimates the rotation and translation between the template and test images based on the matched keypoints. The transformation annotations are added to the test image to visualize the estimated transformation.
 
+## Code Explanation
+
+### Homographic Estimation
+
+This code block uses the `cv2.findHomography` function to estimate the homography matrix between the template and test images. It then calculates the rotation and translation based on the homography matrix.
+
+```python
+# Estimate transformation between template and test images
+src_pts = np.float32([kp_template[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
+dst_pts = np.float32([kp_test[m.trainIdx].pt for m in matches]).reshape(-1, 1, 2)
+M, _ = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
+
+# Calculate rotation and translation
+rotation_rad = np.arctan2(M[1, 0], M[0, 0])
+rotation_deg = np.degrees(rotation_rad)
+translation = M[:, 2]
+```
+## Affine Transformation
+
+This code block estimates the affine transformation between the segmented template and test images using the `cv2.estimateAffine2D` function. It then calculates the rotation and translation based on the affine matrix.
+
+```python
+# Estimate affine transformation between segmented template and test images
+src_pts = np.float32([kp_template[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
+dst_pts = np.float32([kp_test[m.trainIdx].pt for m in matches]).reshape(-1, 1, 2)
+M = cv2.estimateAffine2D(src_pts, dst_pts)[0]
+
+# Calculate rotation and translation
+rotation_rad = np.arctan2(M[1, 0], M[0, 0])
+rotation_deg = np.degrees(rotation_rad)
+translation = M[:, 2]
+```
+
